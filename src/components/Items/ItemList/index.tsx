@@ -74,6 +74,8 @@ const ItemList = () => {
 
                 {items.length === 0 ? (
                     <div style={{
+                        marginTop: '12rem',
+                        marginBottom: '12rem',
                         width: '100%',
                         display: 'flex',
                         justifyContent: 'center'
