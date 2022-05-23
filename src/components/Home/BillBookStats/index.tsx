@@ -33,7 +33,7 @@ const stats: statisticData[] = [
 ];
 
 const statElements = stats.map((stat, index) => (
-    <StatContainer firstElement={index === 0} lastElement={index === stats.length - 1}>
+    <StatContainer key={stat.stat} firstElement={index === 0} lastElement={index === stats.length - 1}>
         <StatValueContainer>
             <StatValue>{stat.stat}</StatValue>
             {stat.displayStar && (

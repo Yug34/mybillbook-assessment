@@ -115,7 +115,7 @@ const mobileDesktopSVG = (tertiaryColor: string) => (
 );
 
 const plansElements = plansData.map((plan, index) => (
-    <PlanCard borderColor={plan.borderColor} firstElement={index === 0} lastElement={index === plansData.length - 1} cardBackground={plan.cardBackground} >
+    <PlanCard key={plan.planName} borderColor={plan.borderColor} firstElement={index === 0} lastElement={index === plansData.length - 1} cardBackground={plan.cardBackground} >
         <div style={{padding: '12px'}}>
             {plan.mostPopular && (
                 <MostPopular>

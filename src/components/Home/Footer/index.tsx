@@ -57,7 +57,7 @@ const socialMedias = [
 ];
 
 const socialMediaElements = socialMedias.map((media) => (
-    <SocialElement aria-label={media.name}>
+    <SocialElement key={media.name} aria-label={media.name}>
         {media.icon}
     </SocialElement>
 ));
@@ -99,7 +99,7 @@ const Footer = () => {
                 <ContactNumber>+91 74004 17400</ContactNumber>
                 <ChatLinkContainer>
                     {chatLinks.map((chat, index) => (
-                        <ChatItem style={index === 0 ? {backgroundColor: chat.bgColor} : {backgroundColor: chat.bgColor, marginLeft: '8px'}}>
+                        <ChatItem key={chat.text} style={index === 0 ? {backgroundColor: chat.bgColor} : {backgroundColor: chat.bgColor, marginLeft: '8px'}}>
                             {chat.icon}
                             <span style={{color: chat.textColor, fontWeight: 'bold', marginLeft: '8px'}}>{chat.text}</span>
                         </ChatItem>
@@ -114,13 +114,13 @@ const Footer = () => {
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <div>
                         {["Refund Policy", "Privacy Policy", "Terms & Conditions"].map((str, index) => (
-                            <p style={index === 1 ? {color: '#e87137'} : {color: '#404040'}}>{str}</p>
+                            <p key={str} style={index === 1 ? {color: '#e87137'} : {color: '#404040'}}>{str}</p>
                         ))}
                     </div>
 
                     <div>
                         {["FAQs", "Pricing", "FloBiz Business Group", "Blogs"].map((str) => (
-                            <p style={{color: '#404040'}}>{str}</p>
+                            <p key={str} style={{color: '#404040'}}>{str}</p>
                         ))}
                     </div>
                 </div>
