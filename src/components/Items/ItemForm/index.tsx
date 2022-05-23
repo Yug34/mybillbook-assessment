@@ -18,7 +18,7 @@ const ItemForm = () => {
     const [itemCode, setItemCode] = useState("");
     const [salesPrice, setSalesPrice] = useState("");
     const [purchasePrice, setPurchasePrice] = useState("");
-    const [measuringUnit, setMeasuringUnit] = useState("select-unit");
+    const [measuringUnit, setMeasuringUnit] = useState("Select unit");
     const [stockDate, setStockDate] = useState("");
     //@ts-ignore
     const currentItem = useSelector((state) => state.currentItem);
@@ -144,9 +144,6 @@ const ItemForm = () => {
                             value={measuringUnit}
                             onChange={({ target: { value } }) => setMeasuringUnit(value)}
                         >
-                            <option value="" disabled selected>
-                                Select Unit
-                            </option>
                             {["PCS", "BOXES", "GMS", "KGS", "LTR"].map((item: string) => (
                                 <option value={item} key={item}>{item}</option>
                             ))}
