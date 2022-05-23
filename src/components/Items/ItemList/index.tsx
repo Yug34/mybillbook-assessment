@@ -72,31 +72,42 @@ const ItemList = () => {
                     />
                 </SearchBar>
 
-                <ItemTable>
-                    <thead>
-                    <HeaderRow>
-                        {["ITEM NAME", "ITEM CODE", "SELLING PRICE", "PURCHASE PRICE", "UNIT", "DATE"].map((columnTitle) => (
-                            <th style={{fontSize: '14px', color: '#909090', textAlign: 'left', paddingLeft: '1.5rem'}} key={columnTitle}>{columnTitle}</th>
-                        ))}
-                    </HeaderRow>
-                    </thead>
-                    <tbody>
-                    {items.map((item: iItem) => (
-                        <tr
-                            style={{ border: '1px solid #d1d5db', borderTop: 'none', boxSizing: 'content-box'}}
-                            key={item.itemCode}
-                            onClick={(e) => setCurrentItem(e, item)}
-                        >
-                            <DataRowElement>{item.itemName}</DataRowElement>
-                            <DataRowElement>{item.itemCode}</DataRowElement>
-                            <DataRowElement>₹ {item.salesPrice}</DataRowElement>
-                            <DataRowElement>₹ {item.purchasePrice}</DataRowElement>
-                            <DataRowElement>{item.measuringUnit}</DataRowElement>
-                            <DataRowElement>{item.stockDate}</DataRowElement>
-                        </tr>
-                    ))}
-                    </tbody>
-                </ItemTable>
+                {items.length === 0 ? (
+                    <div style={{
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}>
+                        You do not have any items to display
+                    </div>
+                ) : (
+                    <ItemTable>
+                        <thead>
+                            <HeaderRow>
+                                {["ITEM NAME", "ITEM CODE", "SELLING PRICE", "PURCHASE PRICE", "UNIT", "DATE"].map((columnTitle) => (
+                                    <th style={{fontSize: '14px', color: '#909090', textAlign: 'left', paddingLeft: '1.5rem'}} key={columnTitle}>{columnTitle}</th>
+                                ))}
+                            </HeaderRow>
+                        </thead>
+                        <tbody>
+                            {items.map((item: iItem) => (
+                                <tr
+                                    style={{ border: '1px solid #d1d5db', borderTop: 'none', boxSizing: 'content-box'}}
+                                    key={item.itemCode}
+                                    onClick={(e) => setCurrentItem(e, item)}
+                                >
+                                    <DataRowElement>{item.itemName}</DataRowElement>
+                                    <DataRowElement>{item.itemCode}</DataRowElement>
+                                    <DataRowElement>₹ {item.salesPrice}</DataRowElement>
+                                    <DataRowElement>₹ {item.purchasePrice}</DataRowElement>
+                                    <DataRowElement>{item.measuringUnit}</DataRowElement>
+                                    <DataRowElement>{item.stockDate}</DataRowElement>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </ItemTable>
+                )}
+
             </SearchResultsContainer>
         </ListContainer>
     );
