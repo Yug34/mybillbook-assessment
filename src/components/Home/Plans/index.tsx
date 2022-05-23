@@ -139,13 +139,13 @@ const plansElements = plansData.map((plan, index) => (
 
         <div style={{padding: '12px'}}>
             {plan.benefits.doubleCheckBenefits && (
-                <BenefitParagraph>
+                <BenefitParagraph key={plan.benefits.doubleCheckBenefits}>
                     {doubleGreenTick}
                     <span style={{marginLeft: '10px'}}>{plan.benefits.doubleCheckBenefits}</span>
                 </BenefitParagraph>
             )}
             {plan.benefits.singleCheckBenefits.map((benefit) => (
-                <BenefitParagraph>
+                <BenefitParagraph key={(typeof benefit === "string") ? benefit : "Benefit"}>
                     {singleGreenTick}
                     <span style={{marginLeft: '10px'}}>{benefit}</span>
                 </BenefitParagraph>
